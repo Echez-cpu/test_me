@@ -1,7 +1,7 @@
 
 void	fill_raycastg_para(int x, t_ray *ray, t_player *player)
 {
-	init_ray(ray);
+	zero_out_ray(ray);
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
 	ray->dir_x = player->dir_x + player->plane_x * ray->camera_x;
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
@@ -68,3 +68,32 @@ void	dda_in_action(t_data *data, t_ray *ray)
 			hit = 1;
 	}
 }
+
+
+
+
+
+
+void	zero_out_ray(t_ray *ray)
+{
+	ray->camera_x = 0;
+	ray->dir_x = 0;
+	ray->dir_y = 0;
+	ray->map_x = 0;
+	ray->map_y = 0;
+	ray->step_x = 0;
+	ray->step_y = 0;
+	ray->sidedist_x = 0;
+	ray->sidedist_y = 0;
+	ray->deltadist_x = 0;
+	ray->deltadist_y = 0;
+	ray->wall_dist = 0;
+	ray->wall_x = 0;
+	ray->side = 0;
+	ray->line_height = 0;
+	ray->draw_start = 0;
+	ray->draw_end = 0;
+}
+
+
+
