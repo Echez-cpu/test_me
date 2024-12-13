@@ -97,3 +97,12 @@ void	zero_out_ray(t_ray *ray)
 
 
 
+
+
+//padding with always
+
+// before you get to the wall check if the you are the limit
+
+
+
+
