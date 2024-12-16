@@ -1,5 +1,5 @@
 
-void	fill_raycastg_para(int x, t_ray *ray, t_player *player)
+void	fill_raycastg_para(int x, t_ray *ray, t_field_of_view *player)
 {
 	zero_out_ray(ray);
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
@@ -14,7 +14,7 @@ void	fill_raycastg_para(int x, t_ray *ray, t_player *player)
 
 
 
-void	dda_skipping_boxes(t_ray *ray, t_player *player)
+void	dda_skipping_boxes(t_ray *ray,  t_field_of_view player)
 {
 	if (ray->dir_x < 0)
 	{
