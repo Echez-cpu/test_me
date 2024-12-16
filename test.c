@@ -14,7 +14,7 @@ void	fill_raycastg_para(int x, t_ray *ray, t_field_of_view *player)
 
 
 
-void	dda_skipping_boxes(t_ray *ray,  t_field_of_view player)
+void	dda_skipping_boxes(t_cast_ray *ray,  t_field_of_view player)
 {
 	if (ray->dir_x < 0)
 	{
