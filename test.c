@@ -42,10 +42,10 @@ void	dda_skipping_boxes(t_ray *ray, t_player *player)
 
 void	dda_in_action(t_data *data, t_ray *ray)
 {
-	int	hit;
+	int	wall_reached;
 
-	hit = 0;
-	while (hit == 0)
+	wall_reached = 0;
+	while (wall_reached == 0)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
 		{
@@ -65,7 +65,7 @@ void	dda_in_action(t_data *data, t_ray *ray)
 			|| ray->map_x > data->mapinfo.width - 1.25)
 			break ;
 		else if (data->map[ray->map_y][ray->map_x] > '0')
-			hit = 1;
+			wall_reached = 1;
 	}
 }
 
