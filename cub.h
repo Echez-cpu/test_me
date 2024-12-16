@@ -15,8 +15,8 @@
 
 
 
-# define WIN_WIDTH 300
-# define WIN_HEIGHT 300
+# define WIN_WIDTH 320
+# define WIN_HEIGHT 200
 
 
 
