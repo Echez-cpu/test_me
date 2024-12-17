@@ -14,27 +14,27 @@ void	fill_raycastg_para(int x, t_ray *ray, t_field_of_view *player)
 
 
 
-void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view player)
+void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view camera)
 {
 	if (ray->dir_x < 0)
 	{
 		ray->step_x = -1;
-		ray->sidedist_x = (player->pos_x - ray->map_x) * ray->deltadist_x;
+		ray->sidedist_x = (camera->pos_x - ray->map_x) * ray->deltadist_x;
 	}
 	else
 	{
 		ray->step_x = 1;
-		ray->sidedist_x = (ray->map_x + 1.0 - player->pos_x) * ray->deltadist_x;
+		ray->sidedist_x = (ray->map_x + 1.0 - camera->pos_x) * ray->deltadist_x;
 	}
 	if (ray->dir_y < 0)
 	{
 		ray->step_y = -1;
-		ray->sidedist_y = (player->pos_y - ray->map_y) * ray->deltadist_y;
+		ray->sidedist_y = (camera->pos_y - ray->map_y) * ray->deltadist_y;
 	}
 	else
 	{
 		ray->step_y = 1;
-		ray->sidedist_y = (ray->map_y + 1.0 - player->pos_y) * ray->deltadist_y;
+		ray->sidedist_y = (ray->map_y + 1.0 - camera->pos_y) * ray->deltadist_y;
 	}
 }
 
