@@ -97,23 +97,23 @@ void	zero_out_ray(t_ray *ray)
 
 
 
- void	compute_wall_visualization (t_ray *ray, t_data *data, t_player *player)
+ void	compute_wall_visualization(t_cast_ray *ray, t_game_data *data, t_field_of_view *camera)
 {
 	if (ray->side == 0)
 		ray->wall_dist = (ray->sidedist_x - ray->deltadist_x);
 	else
 		ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
 	ray->line_height = (int)(data->win_height / ray->wall_dist);
-	ray->draw_start = -(ray->line_height) / 2 + data->win_height / 2;
+	ray->draw_start = -(ray->line_height) / 2 + data->win_height / 2; // prevents fish eye
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	ray->draw_end = ray->line_height / 2 + data->win_height / 2;
 	if (ray->draw_end >= data->win_height)
 		ray->draw_end = data->win_height - 1;
 	if (ray->side == 0)
-		ray->wall_x = player->pos_y + ray->wall_dist * ray->dir_y;
+		ray->wall_x = camera->pos_y + ray->wall_dist * ray->dir_y;
 	else
-		ray->wall_x = player->pos_x + ray->wall_dist * ray->dir_x;
+		ray->wall_x = camera->pos_x + ray->wall_dist * ray->dir_x;
 	ray->wall_x -= floor(ray->wall_x);
 }
 
