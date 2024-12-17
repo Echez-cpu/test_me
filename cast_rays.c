@@ -8,7 +8,7 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 	while (x < data->win_width)
 	{
 		fill_raycastg_para(x, &ray, camera);
-		set_dda(&ray, camera);
+		initialize_ray_traversal(&ray, camera);
 		perform_dda(data, &ray);
 		calculate_line_height(&ray, data, camera);
 		update_texture_pixels(data, &data->texinfo, &ray, x);
