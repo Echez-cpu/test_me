@@ -14,9 +14,9 @@ int	main(int argc, char **argv)
 //It opens and reads the map file.
 //Verifies that the map adheres to rules (e.g., surrounded by walls, valid characters).
 //Updates data with map data (grid layout, dimensions, etc.)
-  4 initialize_mlx (&data);	
+  initialize_mlx(&data);
   
-5  initialize_textures(&data);
+ initialize_textures(&data);
 //Performs the initial render of the game view.
 //Casts rays for every column of pixels on the screen.
 //Draws walls, ceilings, and floors based on the player’s current position and direction.
