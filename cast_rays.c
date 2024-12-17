@@ -16,3 +16,17 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 	}
 	return (SUCCESS);
 }
+
+
+
+void	initialize_mlx(t_game_data *data)
+{
+	data->mlx = mlx_init();
+	if (!data->mlx)
+		clean_exit(data, err_msg("mlx", ERR_MLX_START, 1));
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
+	if (!data->win)
+		clean_exit(data, err_msg("mlx", ERR_MLX_WIN, 1));
+	
+	return ;
+}
