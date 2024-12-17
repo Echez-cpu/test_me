@@ -23,10 +23,10 @@ void	initialize_mlx(t_game_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		clean_exit(data, err_msg("mlx", ERR_MLX_START, 1));
+		// clean and exit
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
-		clean_exit(data, err_msg("mlx", ERR_MLX_WIN, 1));
+		// clean and exit
 	
 	return ;
 }
