@@ -1,5 +1,5 @@
 
-void	fill_raycastg_para(int x, t_ray *ray, t_field_of_view *player)
+void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 {
 	zero_out_ray(ray);
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
@@ -40,7 +40,7 @@ void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view camera)
 
 
 
-void step_through_grid(t_data *data, t_ray *ray)
+void step_through_grid(t_game_data *data, t_cast_ray *ray)
 {
 	int	wall_reached;
 
