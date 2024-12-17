@@ -1,4 +1,4 @@
-int generate_rays(t_player *player, t_data *data)
+int generate_rays(t_field_of_view *camera, t_game_data *data)
 {
 	t_ray	ray;
 	int		x;
@@ -7,10 +7,10 @@ int generate_rays(t_player *player, t_data *data)
 	ray = data->ray;
 	while (x < data->win_width)
 	{
-		init_raycasting_info(x, &ray, player);
-		set_dda(&ray, player);
+		init_raycasting_info(x, &ray, camera);
+		set_dda(&ray, camera);
 		perform_dda(data, &ray);
-		calculate_line_height(&ray, data, player);
+		calculate_line_height(&ray, data, camera);
 		update_texture_pixels(data, &data->texinfo, &ray, x);
 		x++;
 	}
