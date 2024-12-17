@@ -3,7 +3,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
+	t_game_data	data;
 
 	1//if (ac != 2)
 	//	return (error_message));
