@@ -105,7 +105,7 @@ typedef struct s_field_of_view
 	int		rotate;
 }	t_field_of_view;
 
-typedef struct s_data
+typedef struct s_game_data
 {
 	void		*mlx;
 	void		*win;
@@ -119,4 +119,4 @@ typedef struct s_data
 	int			**textures;
 	t_texinfo	texinfo;
 	t_img		minimap;
-}	t_data;
+}	t_game_data;
