@@ -7,7 +7,7 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 	ray = data->ray;
 	while (x < data->win_width)
 	{
-		init_raycasting_info(x, &ray, camera);
+		fill_raycastg_para(x, &ray, camera);
 		set_dda(&ray, camera);
 		perform_dda(data, &ray);
 		calculate_line_height(&ray, data, camera);
