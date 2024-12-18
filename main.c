@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
   
   //Sets up hooks or listeners for player input (e.g., keyboard or mouse events).
     
-  mlx_loop_hook(data.mlx, render_&_cast, &data);
+  mlx_loop_hook(data.mlx, update_graphics, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
