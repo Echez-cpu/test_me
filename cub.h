@@ -111,7 +111,6 @@ typedef struct s_game_data
 	void		*win;
 	int			win_height;
 	int			win_width;
-	t_mapinfo	mapinfo;
 	char		**map;
 	t_field_of_view	first_person;
 	t_cast_ray		casted_ray;
