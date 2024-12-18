@@ -12,7 +12,7 @@ void	draw_graphics(t_game_data *data)
 {
 	allocate_pixel_memory(data);
 	zero_out_ray(&data->ray);
-	generate_rays(&data->player, data);
+	generate_rays(&data->first_person, data);
 	render_frame(data);
 }
 
