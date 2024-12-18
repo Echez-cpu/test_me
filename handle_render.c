@@ -22,7 +22,7 @@ void	allocate_pixel_memory(t_game_data *data)
 	int	i;
 
 	if (data->texture_pixels)
-		free_tab((void **)data->texture_pixels);
+		free_things((void **)data->texture_pixels);
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
