@@ -1,8 +1,3 @@
-# include "libft.h"
-# include "mlx.h"
-# include <errno.h>
-# include <fcntl.h>
-# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -12,19 +7,22 @@
 # include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
+# include "libft.h"
+# include "mlx.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <math.h>
 
 
 
-# define WIN_WIDTH 320
 # define WIN_HEIGHT 200
-
-
+# define WIN_WIDTH 320
 
 enum e_output
 {
 	SUCCESS = 0,
-	FAILURE = 1,
-	ERR = 2,
+	FAIL = 1,
+	ERROR = 2,
 	BREAK = 3,
 	CONTINUE = 4
 };
@@ -37,7 +35,6 @@ enum e_texture_index
 	WEST = 3
 };
 
-typedef unsigned long	t_ulong;
 
 // structures
 
