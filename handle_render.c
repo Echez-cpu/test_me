@@ -13,7 +13,7 @@ void	draw_graphics(t_game_data *data)
 	allocate_pixel_memory(data);
 	zero_out_ray(&data->ray);
 	generate_rays(&data->first_person, data);
-	render_frame(data);
+	paint_frame(data);
 }
 
 
@@ -37,3 +37,29 @@ void	allocate_pixel_memory(t_game_data *data)
 			i++;
 	}
 }
+
+
+
+void	paint_frame(t_game_data *data)
+{
+	t_img	image;
+	int		x;
+	int		y;
+
+	image.img = NULL;
+	init_img(data, &image, data->win_width, data->win_height);
+	y = 0;
+	while (y < data->win_height)
+	{
+		x = 0;
+		while (x < data->win_width)
+		{
+			set_frame_image_pixel(data, &image, x, y);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);
+	mlx_destroy_image(data->mlx, image.img);
+}
+
