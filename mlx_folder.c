@@ -19,3 +19,23 @@ void	reset_img_struct(t_img *img)
 	img->size_line = 0;
 	img->endian = 0;
 }
+
+
+static void	set_texture_pixels(t_data *data, t_img *image, int x, int y)
+{
+	if (data->texture_pixels[y][x] > 0)
+		write_color_2_pixel(image, x, y, data->texture_pixels[y][x]);
+	else if (y < data->win_height / 2)
+		write_color_2_pixel(image, x, y, data->texinfo.hex_ceiling);
+	else if (y < data->win_height -1)
+		write_color_2_pixel(image, x, y, data->texinfo.hex_floor);
+}
+
+
+void	write_color_2_pixel(t_img *image, int x, int y, int color)
+{
+	int	pixel;
+
+	pixel = y * (image->size_line / 4) + x;
+	image->addr[pixel] = color;
+}
