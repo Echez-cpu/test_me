@@ -5,16 +5,18 @@ int	main(int argc, char **argv)
 {
 	t_game_data	data;
 
-	1//if (ac != 2)
+	1 if (argc != 2)
 	//	return (error_message));
-	2// A function that initializes all the fields of the t_data structure to default values.
+	
+     2 // A function that initializes all the fields of the t_game_data structure to default values.
 
-  3//A function that processes the map file passed as argv[1].
+  3 //A function that processes the map file passed as argv[1].
  //function that processes the map file passed as argv[1].
 //It opens and reads the map file.
 //Verifies that the map adheres to rules (e.g., surrounded by walls, valid characters).
 //Updates data with map data (grid layout, dimensions, etc.)
-  initialize_mlx(&data);
+  
+ initialize_mlx(&data);
   
  initialize_textures(&data);
  draw_graphics(data);
