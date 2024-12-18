@@ -54,7 +54,7 @@ void	paint_frame(t_game_data *data)
 		x = 0;
 		while (x < data->win_width)
 		{
-			set_frame_image_pixel(data, &image, x, y);
+			set_pixel_color(data, &image, x, y);
 			x++;
 		}
 		y++;
