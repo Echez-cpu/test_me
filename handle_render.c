@@ -6,3 +6,9 @@ int	update_graphics(t_game_data *data)
 	draw_graphics(data);
 	return (0);
 }
+
+
+void	draw_graphics(t_game_data *data)
+{
+	render_raycast(data);
+}
