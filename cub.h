@@ -99,7 +99,7 @@ typedef struct s_field_of_view
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-	int		has_moved;
+	int		moved;
 	int		move_x;
 	int		move_y;
 	int		rotate;
