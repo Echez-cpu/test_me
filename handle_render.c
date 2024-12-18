@@ -12,6 +12,6 @@ void	draw_graphics(t_game_data *data)
 {
 	init_texture_pixels(data);
 	zero_out_ray(&data->ray);
-	raycasting(&data->player, data);
+	generate_rays(&data->player, data);
 	render_frame(data);
 }
