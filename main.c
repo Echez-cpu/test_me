@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
  initialize_mlx(&data);
   
  initialize_textures(&data);
- draw_graphics(data);
+ draw_graphics(&data);
 //Performs the initial render of the game view.
 //Casts rays for every column of pixels on the screen.
 //Draws walls, ceilings, and floors based on the player’s current position and direction.
