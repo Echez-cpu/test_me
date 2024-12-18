@@ -42,7 +42,7 @@ enum e_texture_index
 typedef struct s_img
 {
 	void	*img;
-	int		*addr;
+	int		*address;
 	int		pixel_bits;
 	int		size_line;
 	int		endian;
