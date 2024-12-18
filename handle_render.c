@@ -47,7 +47,7 @@ void	paint_frame(t_game_data *data)
 	int		y;
 
 	image.img = NULL;
-	init_img(data, &image, data->win_width, data->win_height);
+	setup_image(data, &image, data->win_width, data->win_height);
 	y = 0;
 	while (y < data->win_height)
 	{
