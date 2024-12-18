@@ -62,7 +62,7 @@ void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ra
 		txture->pos += txture->step;
 		color = data->textures[txture->index][txture->size * teture->y + txture->x];
 		if (txture->index == NORTH || txture->index == EAST)
-			color = (color >> 1) & 8355711;
+			color = (color >> 1) & 0x7F7F7F;
 		if (color > 0)
 			data->texture_pixels[y][x] = color;
 		y++;
