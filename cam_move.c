@@ -1,19 +1,19 @@
 int	move_if_valid(t_game_data *data, double i, double j)
 {
-	int	moved;
+	int	shifted;
 
-	moved = 0;
+	shifted = 0;
 	if (is_position_allowed(data, i, data->first_person.pos_y))
 	{
 		data->first_person.pos_x = i;
-		moved = 1;
+		shifted = 1;
 	}
 	if (is_position_allowed(data, data->first_person.pos_x, j))
 	{
 		data->first_person.pos_y = j;
-		moved = 1;
+		shifted = 1;
 	}
-	return (moved);
+	return (shifted);
 }
 
 
