@@ -119,3 +119,17 @@ typedef struct s_game_data
 	t_texinfo	texinfo;
 	t_img		minimap;
 }	t_game_data;
+
+
+
+
+typedef struct s_mapinfo
+{
+	int			fd;
+	int			line_count;
+	char		*path;
+	char		**file;
+	int			height;
+	int			width;
+	int			end_of_map_index;
+}	t_mapinfo;
