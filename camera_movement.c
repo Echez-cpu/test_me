@@ -19,7 +19,7 @@ int	camera_spin(t_game_data *data)
 
 
 
-static int	propel_forward(t_game_data *data)
+ int	propel_forward(t_game_data *data)
 {
 	double	i;
 	double	j;
@@ -31,7 +31,7 @@ static int	propel_forward(t_game_data *data)
 
 
 
-static int	propel_backward(t_game_data *data)
+ int	propel_backward(t_game_data *data)
 {
 	double	i;
 	double	j;
@@ -42,7 +42,7 @@ static int	propel_backward(t_game_data *data)
 }
 
 
-static int	glide_left(t_game_data *data)
+ int	glide_left(t_game_data *data)
 {
 	double	i;
 	double	j;
@@ -54,7 +54,7 @@ static int	glide_left(t_game_data *data)
 
 
 
-static int	glide_right(t_game_data *data)
+ int	glide_right(t_game_data *data)
 {
 	double	i;
 	double	j;
@@ -63,4 +63,38 @@ static int	glide_right(t_game_data *data)
 	j = data->first_person.pos_y + data->first_person.dir_x * MOVESPEED;
 	return (validate_move(data, i, j));
 }
+
+
+int	rotate_camera(t_game_data *data, double rotdir)
+{
+	int		shifted;
+	double	turn_rate;
+
+	shifted = 0;
+	turn_rate = ROTSPEED * rotdir;
+	shifted += apply_turn(data, turn_rate);
+	return (shifted);
+}
+
+
+ int	apply_turn(t_data *data, double rotspeed)
+{
+	t_player	*p;
+	double		tmp_x;
+
+	p = &data->player;
+	tmp_x = p->dir_x;
+	p->dir_x = p->dir_x * cos(rotspeed) - p->dir_y * sin(rotspeed);
+	p->dir_y = tmp_x * sin(rotspeed) + p->dir_y * cos(rotspeed);
+	tmp_x = p->plane_x;
+	p->plane_x = p->plane_x * cos(rotspeed) - p->plane_y * sin(rotspeed);
+	p->plane_y = tmp_x * sin(rotspeed) + p->plane_y * cos(rotspeed);
+	return (1);
+}
+
+
+
+
+
+
 
