@@ -26,7 +26,7 @@ int	camera_spin(t_game_data *data)
 
 	i = data->first_person.pos_x + data->first_person.dir_x * MOVESPEED;
 	j = data->first_person.pos_y + data->first_person.dir_y * MOVESPEED;
-	return (validate_move(data, i, j));
+	return (move_if_valid(data, i, j));
 }
 
 
@@ -38,7 +38,7 @@ int	camera_spin(t_game_data *data)
 
 	i = data->first_person.pos_x - data->first_person.dir_x * MOVESPEED;
 	j = data->first_person.pos_y - data->first_person.dir_y * MOVESPEED;
-	return (validate_move(data, i, j));
+	return (move_if_valid(data, i, j));
 }
 
 
@@ -49,7 +49,7 @@ int	camera_spin(t_game_data *data)
 
 	i = data->first_person.pos_x + data->first_person.dir_y * MOVESPEED;
 	j = data->first_person.pos_y - data->first_person.dir_x * MOVESPEED;
-	return (validate_move(data, i, j));
+	return (move_if_valid(data, i, j));
 }
 
 
@@ -61,7 +61,7 @@ int	camera_spin(t_game_data *data)
 
 	i = data->first_person.pos_x - data->first_person.dir_y * MOVESPEED;
 	j = data->first_person.pos_y + data->first_person.dir_x * MOVESPEED;
-	return (validate_move(data, i, j));
+	return (move_if_valid(data, i, j));
 }
 
 
