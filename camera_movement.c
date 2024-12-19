@@ -1,5 +1,5 @@
 
-int	camera_spin(t_data *data)
+int	camera_spin(t_game_data *data)
 {
 	int	moved;
 
