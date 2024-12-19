@@ -18,7 +18,7 @@
 # define WIN_HEIGHT 200
 # define WIN_WIDTH 320
 
-
+# define TEXTURE_SIZE 64
 # define MOVESPEED 0.0525
 
 enum e_output
