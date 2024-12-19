@@ -18,6 +18,9 @@
 # define WIN_HEIGHT 200
 # define WIN_WIDTH 320
 
+
+# define MOVESPEED 0.0525
+
 enum e_output
 {
 	SUCCESS = 0,
