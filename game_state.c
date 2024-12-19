@@ -14,7 +14,7 @@ void	setup_game_state(t_game_data *data)
 }
 
 
-static void	init_camera(t_player *cam)
+static void	init_camera(t_field_of_view *cam)
 {
 	cam->dir = '\0';
 	cam->pos_x = 0.0;
