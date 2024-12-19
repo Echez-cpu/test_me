@@ -71,30 +71,24 @@ int	rotate_camera(t_game_data *data, double rotdir)
 	double	turn_rate;
 
 	shifted = 0;
-	turn_rate = ROTSPEED * rotdir;
+	turn_rate = TURN_RATE * rotdir;
 	shifted += apply_turn(data, turn_rate);
 	return (shifted);
 }
 
 
- int	apply_turn(t_data *data, double rotspeed)
+ int	apply_turn(t_game_data *data, double turn_rate)
 {
-	t_player	*p;
-	double		tmp_x;
+	t_field_of_view;	*cam;
+	double		tmp_i;
 
-	p = &data->player;
-	tmp_x = p->dir_x;
-	p->dir_x = p->dir_x * cos(rotspeed) - p->dir_y * sin(rotspeed);
-	p->dir_y = tmp_x * sin(rotspeed) + p->dir_y * cos(rotspeed);
-	tmp_x = p->plane_x;
-	p->plane_x = p->plane_x * cos(rotspeed) - p->plane_y * sin(rotspeed);
-	p->plane_y = tmp_x * sin(rotspeed) + p->plane_y * cos(rotspeed);
+	cam = &data->first_person;
+	tmp_i = cam->dir_x;
+	cam->dir_x = cam->dir_x * cos(turn_rate) - cam->dir_y * sin(turn_rate);
+	cam->dir_y = tmp_i * sin(turn_rate) + cam->dir_y * cos(turn_rate);
+	tmp_i = cam->plane_x;
+	cam->plane_x = cam->plane_x * cos(turn_rate) - cam->plane_y * sin(turn_rate);
+	cam->plane_y = tmp_i * sin(turn_rate) + cam->plane_y * cos(turn_rate);
 	return (1);
 }
-
-
-
-
-
-
 
