@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 	1 if (argc != 2)
 	//	return (error_message));
 	
-     2 // A function that initializes all the fields of the t_game_data structure to default values.
+     setup_game_state(&data);
 
   3 //A function that processes the map file passed as argv[1].
  //function that processes the map file passed as argv[1].
