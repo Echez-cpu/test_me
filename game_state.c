@@ -47,3 +47,18 @@ void	init_txtureinfo(t_texinfo *textures)
 	textures->x = 0;
 	textures->y = 0;
 }
+
+
+ void	init_mapinfo(t_mapinfo *mapinfo)
+{
+	mapinfo->fd = 0;
+	mapinfo->line_count = 0;
+	mapinfo->path = NULL;
+	mapinfo->file = NULL;
+	mapinfo->height = 0;
+	mapinfo->width = 0;
+	mapinfo->end_of_map_index = 0;
+}
+
+
+
