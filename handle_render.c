@@ -1,6 +1,6 @@
 int	update_graphics(t_game_data *data)
 {
-	data->fisrt_person.moved += move_player(data);
+	data->fisrt_person.moved += camera_spin(data);
 	if (data->first_person.moved == 0)
 		return (0);
 	draw_graphics(data);
