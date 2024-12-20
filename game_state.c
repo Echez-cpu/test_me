@@ -39,8 +39,8 @@ void	init_txtureinfo(t_texinfo *textures)
 	textures->east = NULL;
 	textures->floor = 0;
 	textures->ceiling = 0;
-	textures->hex_floor = 0x0;
-	textures->hex_ceiling = 0x0;
+	textures->hex_floor = 0UL;
+	textures->hex_ceiling = 0UL;
 	textures->size = TEXTURE_SIZE;
 	textures->step = 0.0;
 	textures->pos = 0.0;
