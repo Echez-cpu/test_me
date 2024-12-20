@@ -37,7 +37,7 @@ bool	is_position_inside_map(t_game_data *data, double x, double y)
 	return (true);
 }
 
-
+// Keeps the position within the bottom boundary with a smaller padding of 0.25.
 
  bool	is_position_free_of_walls(t_data *data, double x, double y)
 {
