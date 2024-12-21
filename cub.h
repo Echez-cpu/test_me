@@ -21,6 +21,17 @@
 # define TEXTURE_SIZE 64
 # define MOVESPEED 0.0525
 
+#define KEY_ESC		65307
+#define	KEY_PRESS	2
+#define	KEY_W		119
+#define	KEY_S		115
+#define	KEY_A		97
+#define	KEY_D		100
+#define	KEY_LEFT	65361
+#define KEY_RIGHT	65363
+#define	X_CLICK		17
+
+
 enum e_output
 {
 	SUCCESS = 0,
