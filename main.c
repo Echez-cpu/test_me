@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
   
  configure_textures(&data);
  draw_graphics(&data);
+  setup_input_hooks(&data);
 //Performs the initial render of the game view.
 //Casts rays for every column of pixels on the screen.
 //Draws walls, ceilings, and floors based on the player’s current position and direction.
