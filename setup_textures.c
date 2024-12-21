@@ -22,7 +22,7 @@ static int	*get_texture_from_xpm(t_game_data *data, char *path)
 	buffer = ft_calloc(1,
 			sizeof * buffer * data->texinfo.size * data->texinfo.size);
 	if (!buffer)
-		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+		// clean and exit
 	y = 0;
 	while (y < data->texinfo.size)
 	{
@@ -30,7 +30,7 @@ static int	*get_texture_from_xpm(t_game_data *data, char *path)
 		while (x < data->texinfo.size)
 		{
 			buffer[y * data->texinfo.size + x]
-				= tmp.addr[y * data->texinfo.size + x];
+				= tmp.address[y * data->texinfo.size + x];
 			++x;
 		}
 		y++;
