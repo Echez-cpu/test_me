@@ -64,8 +64,8 @@ static void	init_empty_image(t_img *img)
 
 void	setup_game_state(t_game_data *data)
 {
-	//data->mlx = NULL;
-	//data->win = NULL;
+	data->mlx = NULL;
+	data->win = NULL;
 	data->win_height = WIN_HEIGHT;
 	data->win_width = WIN_WIDTH;
 	init_camera(&data->first_person);
