@@ -1,4 +1,66 @@
 
+#include "cub.h"
+
+
+static int	propel_forward(t_game_data *data)
+{
+	double	i;
+	double	j;
+
+	i = data->first_person.pos_x + data->first_person.dir_x * MOVESPEED;
+	j = data->first_person.pos_y + data->first_person.dir_y * MOVESPEED;
+	return (move_if_valid(data, i, j));
+}
+
+
+static int	propel_backward(t_game_data *data)
+{
+	double	i;
+	double	j;
+
+	i = data->first_person.pos_x - data->first_person.dir_x * MOVESPEED;
+	j = data->first_person.pos_y - data->first_person.dir_y * MOVESPEED;
+	return (move_if_valid(data, i, j));
+}
+
+
+
+
+static int	glide_left(t_game_data *data)
+{
+	double	i;
+	double	j;
+
+	i = data->first_person.pos_x + data->first_person.dir_y * MOVESPEED;
+	j = data->first_person.pos_y - data->first_person.dir_x * MOVESPEED;
+	return (move_if_valid(data, i, j));
+}
+
+
+static int	glide_right(t_game_data *data)
+{
+	double	i;
+	double	j;
+
+	i = data->first_person.pos_x - data->first_person.dir_y * MOVESPEED;
+	j = data->first_person.pos_y + data->first_person.dir_x * MOVESPEED;
+	return (move_if_valid(data, i, j));
+}
+
+
+
+int	rotate_camera(t_game_data *data, double rotdir)
+{
+	int		shifted;
+	double	turn_rate;
+
+	shifted = 0;
+	turn_rate = TURN_RATE * rotdir;
+	shifted += apply_turn(data, turn_rate);
+	return (shifted);
+}
+
+
 int	camera_spin(t_game_data *data)
 {
 	int	moved;
@@ -19,67 +81,10 @@ int	camera_spin(t_game_data *data)
 
 
 
- int	propel_forward(t_game_data *data)
-{
-	double	i;
-	double	j;
-
-	i = data->first_person.pos_x + data->first_person.dir_x * MOVESPEED;
-	j = data->first_person.pos_y + data->first_person.dir_y * MOVESPEED;
-	return (move_if_valid(data, i, j));
-}
-
-
-
- int	propel_backward(t_game_data *data)
-{
-	double	i;
-	double	j;
-
-	i = data->first_person.pos_x - data->first_person.dir_x * MOVESPEED;
-	j = data->first_person.pos_y - data->first_person.dir_y * MOVESPEED;
-	return (move_if_valid(data, i, j));
-}
-
-
- int	glide_left(t_game_data *data)
-{
-	double	i;
-	double	j;
-
-	i = data->first_person.pos_x + data->first_person.dir_y * MOVESPEED;
-	j = data->first_person.pos_y - data->first_person.dir_x * MOVESPEED;
-	return (move_if_valid(data, i, j));
-}
-
-
-
- int	glide_right(t_game_data *data)
-{
-	double	i;
-	double	j;
-
-	i = data->first_person.pos_x - data->first_person.dir_y * MOVESPEED;
-	j = data->first_person.pos_y + data->first_person.dir_x * MOVESPEED;
-	return (move_if_valid(data, i, j));
-}
-
-
-int	rotate_camera(t_game_data *data, double rotdir)
-{
-	int		shifted;
-	double	turn_rate;
-
-	shifted = 0;
-	turn_rate = TURN_RATE * rotdir;
-	shifted += apply_turn(data, turn_rate);
-	return (shifted);
-}
-
 
  int	apply_turn(t_game_data *data, double turn_rate)
 {
-	t_field_of_view;	*cam;
+	t_field_of_view	*cam;
 	double		tmp_i;
 
 	cam = &data->first_person;

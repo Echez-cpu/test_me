@@ -1,4 +1,6 @@
 
+#include "cub.h"
+
 void	free_things(void **tab)
 {
 	size_t	i;

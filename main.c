@@ -1,34 +1,88 @@
+#include "cub.h"
+
+
+void	init_player_north_south(t_field_of_view *player)
+{
+	if (player->dir == 'S')
+	{
+		player->dir_x = 0;
+		player->dir_y = 1;
+		player->plane_x = -0.66;
+		player->plane_y = 0;
+	}
+	else if (player->dir == 'N')
+	{
+		player->dir_x = 0;
+		player->dir_y = -1;
+		player->plane_x = 0.66;
+		player->plane_y = 0;
+	}
+	else
+		return ;
+}
+
+
+
+void	init_player_east_west( t_field_of_view *player)
+{
+	if (player->dir == 'W')
+	{
+		player->dir_x = -1;
+		player->dir_y = 0;
+		player->plane_x = 0;
+		player->plane_y = -0.66;
+	}
+	else if (player->dir == 'E')
+	{
+		player->dir_x = 1;
+		player->dir_y = 0;
+		player->plane_x = 0;
+		player->plane_y = 0.66;
+	}
+	else
+		return ;
+}
+
+
+
+
+void	init_player_direction(t_game_data *data)
+{
+	init_player_north_south(&data->first_person);
+	init_player_east_west(&data->first_person);
+}
+
+
 
 
 
 int	main(int argc, char **argv)
 {
 	t_game_data	data;
+	t_info	info;
 
-	1 if (argc != 2)
-	//	return (error_message));
-	
-     setup_game_state(&data);
+	if (argc != 2)
+	{
+		ft_putendl_fd("Error: Invalid number of arguments\n", 2);
+		return (1);
+	}
+	   
+	   
+	//setup_game_state(&data);
 
-  3 //A function that processes the map file passed as argv[1].
- //function that processes the map file passed as argv[1].
-//It opens and reads the map file.
-//Verifies that the map adheres to rules (e.g., surrounded by walls, valid characters).
-//Updates data with map data (grid layout, dimensions, etc.)
-  
- initialize_mlx(&data);
-  
- configure_textures(&data);
- draw_graphics(&data);
-  setup_input_hooks(&data);
-//Performs the initial render of the game view.
-//Casts rays for every column of pixels on the screen.
-//Draws walls, ceilings, and floors based on the player’s current position and direction.
-//The rendered image may be stored in an off-screen buffer.	
-  
-  //Sets up hooks or listeners for player input (e.g., keyboard or mouse events).
+	// if (set_info(&info, argv[1]) == 1 || validity_check(&info) == 1)
+	// {
+	// 	free_all(&info);
+	// 	return (1);
+	// }
+
+  initialize_mlx(&data);
+  init_player_direction(&data);
+   //configure_textures(&data);
+   draw_graphics(&data);
+   setup_input_hooks(&data);
     
-  mlx_loop_hook(data.mlx, update_graphics, &data);
+   mlx_loop_hook(data.mlx, update_graphics, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

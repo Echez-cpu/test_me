@@ -1,3 +1,6 @@
+#include "cub.h"
+
+
 
 void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 {
@@ -14,7 +17,7 @@ void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 
 
 
-void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view camera)
+void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view *camera)
 {
 	if (ray->dir_x < 0)
 	{
@@ -61,8 +64,8 @@ void step_through_grid(t_game_data *data, t_cast_ray *ray)
 		}
 		if (ray->map_y < 0.25
 			|| ray->map_x < 0.25
-			|| ray->map_y > data->mapinfo.height - 0.25
-			|| ray->map_x > data->mapinfo.width - 1.25)
+			|| ray->map_y > data->mapinfo.num_map_lines - 0.25
+			|| ray->map_x > data->mapinfo_2.width - 1.25)
 			break ;
 		else if (data->map[ray->map_y][ray->map_x] > '0')
 			wall_reached = 1;

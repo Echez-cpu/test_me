@@ -1,10 +1,11 @@
+#include "cub.h"
 
-static int	key_press(int key, t_game_data *press)
+ int	key_press(int key, t_game_data *press)
 {
 	if (key == KEY_W)
-	press->player.move_y = 5;
+	press->first_person.move_y = 5;
 	if (key == KEY_S)
-		press->player.move_y = -5;
+		press->first_person.move_y = -5;
 	if (key == KEY_A)
 		press->first_person.move_x = -5;
 	if (key == KEY_D)
@@ -13,17 +14,17 @@ static int	key_press(int key, t_game_data *press)
 		press->first_person.rotate -= 5;
 	if (key == KEY_RIGHT)
 		press->first_person.rotate += 5;
-	if (key == KEY_ESC)
-		end_game(press);
+	// if (key == KEY_ESC)
+	// 	//finish_program(press);
 	return (0);
 }
 
 
 
-static int	reset_keyPress_flags(int key, t_game_data *press)
+ int	reset_keyPress_flags(int key, t_game_data *press)
 {
 	if (key == KEY_ESC)
-		end_game(press);
+		//finish_program(press);
 	if (key == KEY_W && press->first_person.move_y == 5)
 		press->first_person.move_y = 0;
 	if (key == KEY_S && press->first_person.move_y == -5)
@@ -42,7 +43,7 @@ static int	reset_keyPress_flags(int key, t_game_data *press)
 
 void	setup_input_hooks(t_game_data *data)
 {
-	mlx_hook(data->win, ClientMessage, NoEventMask, end_game, data);
+	mlx_hook(data->win, ClientMessage, NoEventMask, finish_program, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, key_press, data);
 	mlx_hook(data->win, KeyRelease, KeyReleaseMask, reset_keyPress_flags, data);
 }

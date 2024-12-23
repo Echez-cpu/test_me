@@ -1,17 +1,7 @@
-void	setup_game_state(t_game_data *data)
-{
-	data->mlx = NULL;
-	data->win = NULL;
-	data->win_height = WIN_HEIGHT;
-	data->win_width = WIN_WIDTH;
-	init_camera(&data->first_person);
-	init_txtureinfo(&data->texinfo);
-	data->map = NULL;
-	init_mapinfo(&data->mapinfo);
-	init_empty_image(&data->minimap);
-	data->texture_pixels = NULL;
-	data->textures = NULL;
-}
+
+
+#include "cub.h"
+
 
 
 static void	init_camera(t_field_of_view *cam)
@@ -30,8 +20,7 @@ static void	init_camera(t_field_of_view *cam)
 }
 
 
-
-void	init_txtureinfo(t_texinfo *textures)
+static void	init_txtureinfo(t_texinfo *textures)
 {
 	textures->north = NULL;
 	textures->south = NULL;
@@ -49,7 +38,7 @@ void	init_txtureinfo(t_texinfo *textures)
 }
 
 
- void	init_mapinfo(t_mapinfo *mapinfo)
+static void	init_mapinfo(t_mapinfo *mapinfo)
 {
 	mapinfo->fd = 0;
 	mapinfo->line_count = 0;
@@ -61,11 +50,34 @@ void	init_txtureinfo(t_texinfo *textures)
 }
 
 
-void	init_empty_image(t_img *img)
+static void	init_empty_image(t_img *img)
 {
 	img->img = NULL;
-	img->addr = NULL;
+	img->address = NULL;
 	img->pixel_bits = 0;
 	img->size_line = 0;
 	img->endian = 0;
 }
+
+
+
+
+void	setup_game_state(t_game_data *data)
+{
+	//data->mlx = NULL;
+	//data->win = NULL;
+	data->win_height = WIN_HEIGHT;
+	data->win_width = WIN_WIDTH;
+	init_camera(&data->first_person);
+	init_txtureinfo(&data->texinfo);
+	data->map = NULL;
+	init_mapinfo(&data->mapinfo_2);
+	init_empty_image(&data->minimap);
+	data->texture_pixels = NULL;
+	data->textures = NULL;
+}
+
+
+
+
+
