@@ -3,10 +3,6 @@
 # Program file name
 NAME	= cub3D
 
-# Mode
-BONUS = 0
-
-# Compiler and compilation flags
 CC		= gcc
 CFLAGS	= -Werror -Wextra -Wall -g3 #-fsanitize=address
 
@@ -20,7 +16,6 @@ LIBFT_PATH	= libft/
 LIBFT_NAME	= libft.a
 LIBFT		= $(LIBFT_PATH)$(LIBFT_NAME)
 
-# Sources
 SRC		= \
 	main.c \
 	cam_move.c \
@@ -54,7 +49,6 @@ INC			= \
 	-I ./libft/ \
 	-I ./minilibx-linux/
 
-# Main rule
 all: $(OBJ_PATH) $(MLX) $(LIBFT) $(NAME)
 
 # Objects directory rule
@@ -62,13 +56,12 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 	mkdir -p $(OBJ_PATH)parsing
 
-# Objects rule
-$(OBJ_PATH)%.o: %.c
-	$(CC) $(CFLAGS) -DBONUS=$(BONUS) -c $< -o $@ $(INC)
 
-# Project file rule
+$(OBJ_PATH)%.o: %.c
+	$(CC) $(CFLAGS)  -c $< -o $@ $(INC)
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -DBONUS=$(BONUS) $(OBJS) -o $@ $(LIBFT) $(MLX) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(MLX) -lXext -lX11 -lm
 
 # Libft rule
 $(LIBFT):
@@ -78,8 +71,6 @@ $(LIBFT):
 $(MLX):
 	make -sC $(MLX_PATH)
 
-bonus:
-	make all BONUS=1
 
 # Clean up build files rule
 clean:
@@ -92,5 +83,4 @@ fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_PATH) fclean
 
-# Clean + remove executable
 re: fclean all
